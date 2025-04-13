@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;
   const transportType = searchParams.get('transportType');
-  const proxyUrl = process.env.PROXY_SERVER_URL || 'http://inspector-backend:3013';
+  const proxyUrl = process.env.PROXY_SERVER_URL || 'http://registry:6278';
   
   // Forward to the proxy server
   const url = new URL(`${proxyUrl}/sse`);

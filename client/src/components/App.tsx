@@ -41,6 +41,7 @@ import { DEFAULT_INSPECTOR_CONFIG } from "@/lib/constants"
 import type { InspectorConfig } from "@/lib/configurationTypes"
 import { useToast } from "@/hooks/use-toast"
 import dynamic from "next/dynamic"
+import { getMCPProxyAddress } from "@/utils/configUtils"
 
 // Dynamically import OAuthCallback with no SSR
 const OAuthCallback = dynamic(() => import("@/components/OAuthCallback"), { ssr: false })
@@ -222,8 +223,9 @@ const App = () => {
 
   useEffect(() => {
     if (!isClient) return
-
-    fetch("/inspector/api/config")
+    const configUrl = `${getMCPProxyAddress(config)}/config`
+    console.log
+    fetch(configUrl)
       .then((response) => response.json())
       .then((data) => {
         setEnv(data.defaultEnvironment || {})

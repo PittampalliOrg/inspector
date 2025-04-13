@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 export const dynamic = 'force-dynamic';
 
 export async function POST(request: NextRequest) {
-  const proxyUrl = process.env.PROXY_SERVER_URL || 'http://inspector-backend:3013';
+  const proxyUrl = process.env.PROXY_SERVER_URL || 'http://registry:6278';
   const sessionId = request.nextUrl.searchParams.get('sessionId');
   
   if (!sessionId) {

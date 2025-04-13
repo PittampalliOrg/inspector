@@ -3,6 +3,7 @@ import { Toaster } from "@/components/ui/toaster"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import "./globals.css"
 import type { Metadata } from "next"
+import { McpManagerProvider } from '@/lib/contexts/McpManagerContext';
 
 export const metadata: Metadata = {
   title: "MCP Inspector",
@@ -20,8 +21,10 @@ export default function RootLayout({
         <link rel="icon" type="image/svg+xml" href="/mcp.svg" />
       </head>
       <body>
-        <TooltipProvider>{children}</TooltipProvider>
-        <Toaster />
+        <McpManagerProvider>
+          <TooltipProvider>{children}</TooltipProvider>
+          <Toaster />
+        </McpManagerProvider>
       </body>
     </html>
   )
