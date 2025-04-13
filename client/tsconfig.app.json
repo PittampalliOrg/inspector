@@ -27,5 +27,5 @@
     "resolveJsonModule": true,
     "types": ["jest", "@testing-library/jest-dom", "node"]
   },
-  "include": ["src"]
+  "include": ["src", "next.config.mjs"]
 }

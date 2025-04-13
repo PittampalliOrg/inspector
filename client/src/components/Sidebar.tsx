@@ -30,7 +30,6 @@ import {
 import { InspectorConfig } from "@/lib/configurationTypes";
 import { ConnectionStatus } from "@/lib/constants";
 import useTheme from "../lib/useTheme";
-import { version } from "../../../package.json";
 import {
   Tooltip,
   TooltipTrigger,
@@ -89,13 +88,14 @@ const Sidebar = ({
   const [showBearerToken, setShowBearerToken] = useState(false);
   const [showConfig, setShowConfig] = useState(false);
   const [shownEnvVars, setShownEnvVars] = useState<Set<string>>(new Set());
+  const [appVersion, setAppVersion] = useState("0.8.2")
 
   return (
     <div className="w-80 bg-card border-r border-border flex flex-col h-full">
       <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800">
         <div className="flex items-center">
           <h1 className="ml-2 text-lg font-semibold">
-            MCP Inspector v{version}
+            MCP Inspector v{appVersion}
           </h1>
         </div>
       </div>
