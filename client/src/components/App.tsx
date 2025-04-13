@@ -223,7 +223,7 @@ const App = () => {
   useEffect(() => {
     if (!isClient) return
 
-    fetch("/api/config")
+    fetch("/inspector/api/config")
       .then((response) => response.json())
       .then((data) => {
         setEnv(data.defaultEnvironment || {})
